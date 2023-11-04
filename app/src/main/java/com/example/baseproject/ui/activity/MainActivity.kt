@@ -1,16 +1,16 @@
 package com.example.baseproject.ui.activity
 
-import MyViewModel
+import com.example.baseproject.ui.activity.viewmodel.MyViewModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.example.baseproject.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    @Inject
-    lateinit var myViewModel: MyViewModel
+
+    private val myViewModel by viewModels<MyViewModel>()
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

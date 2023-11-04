@@ -1,3 +1,5 @@
+package com.example.baseproject.di
+
 import com.example.baseproject.network.MyApiService
 import com.example.baseproject.utils.BASE_URL
 import dagger.Module
@@ -29,6 +31,7 @@ object RetrofitModule {
     }
 
     @Provides
+    @Singleton
     fun provideMyApiService(retrofit: Retrofit): MyApiService {
         return retrofit.create(MyApiService::class.java)
     }
