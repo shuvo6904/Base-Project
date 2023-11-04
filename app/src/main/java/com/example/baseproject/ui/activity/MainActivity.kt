@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initListener() {
         binding.startBtn.setOnClickListener {
-
+            myViewModel.getAppVersion()
         }
     }
 }
