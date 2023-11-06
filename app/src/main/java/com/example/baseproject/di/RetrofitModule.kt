@@ -1,10 +1,13 @@
 package com.example.baseproject.di
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.baseproject.network.MyApiService
 import com.example.baseproject.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -17,16 +20,18 @@ import javax.inject.Singleton
 object RetrofitModule {
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofit(@ApplicationContext context: Context): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(
                 OkHttpClient.Builder()
-                .addInterceptor(HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.BODY
-                })
-                .build())
+                    .addInterceptor(HttpLoggingInterceptor().apply {
+                        level = HttpLoggingInterceptor.Level.BODY
+                    })
+                    .addInterceptor(ChuckerInterceptor.Builder(context).build())
+                    .build()
+            )
             .build()
     }
 

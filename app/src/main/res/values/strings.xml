@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Base Project</string>
     <string name="start">Start</string>
+    <string name="from_index">From Index</string>
+    <string name="to_index">To Index</string>
+    <string name="index">Index</string>
 </resources>

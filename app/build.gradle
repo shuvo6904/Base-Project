@@ -38,7 +38,6 @@ android {
         viewBinding = true
     }
 
-    // Allow references to generated code
     kapt {
         correctErrorTypes = true
     }
@@ -75,9 +74,18 @@ dependencies {
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
-    //androidx activity fragment
+    // Androidx Activity & Fragment
     implementation 'androidx.activity:activity-ktx:1.8.0'
-    implementation 'androidx.fragment:fragment-ktx:1.6.1'
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Manage Live Data
+    implementation 'com.github.javaherisaber:LiveX:1.1.3'
+
+    // Chucker
+    debugImplementation "com.github.chuckerteam.chucker:library:4.0.0"
 
 
 }
