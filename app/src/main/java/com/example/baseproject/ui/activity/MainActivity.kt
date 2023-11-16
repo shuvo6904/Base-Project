@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
     private val geoCoder by lazy { Geocoder(this, Locale.getDefault()) }
     private var latLngList: ArrayList<ConvertLatLngCommonResponse.ConvertLatLngCommonResponseItem> = arrayListOf()
     private var isCompleted = false
+    private var isProcessing = false
     private var index = 0
-    private var newIndex = 0
     private var size = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,11 +80,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun initListener() {
         binding.startBtn.setOnClickListener {
-            isCompleted = false
-            latLngList.clear()
-            index = binding.index.text.toString().toIntOrNull() ?: 0
-            if (index != 0) myViewModel.getCustomerAddress(index)
-            else Toast.makeText(this, "Enter a valid index", Toast.LENGTH_SHORT).show()
+            if (!isProcessing) {
+                isProcessing = true
+                isCompleted = false
+                latLngList.clear()
+                index = binding.index.text.toString().toIntOrNull() ?: 0
+                if (index != 0){
+                    myViewModel.getCustomerAddress(index)
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                else Toast.makeText(this, "Enter a valid index", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Processing continue...", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

@@ -3,7 +3,6 @@ package com.example.baseproject.ui.activity.viewmodel
 import android.location.Geocoder
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.baseproject.network.MyApiService

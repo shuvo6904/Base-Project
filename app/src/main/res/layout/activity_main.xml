@@ -38,11 +38,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginVertical="@dimen/_20sdp"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:paddingVertical="@dimen/_5sdp"
         android:textStyle="bold"
         android:textSize="@dimen/_14ssp"
         tools:text="Done Index: 1(1000)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_20sdp"
+        tools:visibility="visible"
+        android:indeterminateTint="#E10505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doneIndexText" />
+    <TextView
+        android:id="@+id/count"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintTop_toTopOf="@+id/progressBar"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+        tools:text="0000"
+        android:visibility="gone"
+        android:padding="@dimen/_5sdp"
+        android:textStyle="bold"
+        android:textSize="@dimen/_17ssp"
+        android:textColor="@color/green"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -52,7 +79,7 @@
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doneIndexText"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
         android:layout_marginVertical="@dimen/_20sdp"
         android:layout_width="@dimen/_100sdp"
         android:inputType="number"
