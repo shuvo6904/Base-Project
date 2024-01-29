@@ -64,6 +64,7 @@ class MyViewModel @Inject constructor(private val myApiService: MyApiService) : 
                     lat = address.latitude
                     lng = address.longitude
                 } else {
+                    Log.d("outer_else", "address: ${convertLatLngCommonResponseItem.address1}\nlocation: ${convertLatLngCommonResponseItem.address1}, ${convertLatLngCommonResponseItem.areaOrUpzilaName}, ${convertLatLngCommonResponseItem.stateProvinceName}, ${convertLatLngCommonResponseItem.countryName}")
                     val addresses = geoCoder.getFromLocationName(
                         "${convertLatLngCommonResponseItem.address1}, ${convertLatLngCommonResponseItem.areaOrUpzilaName}, ${convertLatLngCommonResponseItem.stateProvinceName}, ${convertLatLngCommonResponseItem.countryName}",
                         1
@@ -72,6 +73,8 @@ class MyViewModel @Inject constructor(private val myApiService: MyApiService) : 
                         val address = addresses.first()
                         lat = address.latitude
                         lng = address.longitude
+                    } else {
+                        Log.d("inner_else", "$lat, $lng")
                     }
                 }
 

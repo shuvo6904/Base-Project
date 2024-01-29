@@ -1,10 +1,10 @@
 package com.example.baseproject.utils
 
-//const val BASE_URL = "https://app.othoba.com"
-const val BASE_URL = "http://othoba.prangroup.com"
+//const val BASE_URL = "https://app.othoba.com/"
+const val BASE_URL = "https://ap.othoba.com/"
 
-const val GET_CUSTOMER_ADDRESS = "/api-address/getcustomeraddress/"
-const val POST_CUSTOMER_ADDRESS = "/api-address/postcustomeraddress"
+const val GET_CUSTOMER_ADDRESS = "api-address/getcustomeraddress/"
+const val POST_CUSTOMER_ADDRESS = "api-address/postcustomeraddress"
 
 val API_HEADERS = hashMapOf(
     "User-Agent" to "",
